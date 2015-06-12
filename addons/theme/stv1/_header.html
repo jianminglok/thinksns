@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><neq name= '_title' value=''>{$_title} - {$site.site_name}<else />{$site.site_name} - {$site.site_slogan}</neq></title>
+<meta content="<neq name= '_keywords' value=''>{$_keywords}<else />{$site.site_header_keywords}</neq>" name="keywords">
+<meta content="<neq name= '_description' value=''>{$_description}<else />{$site.site_header_description}</neq>" name="description">
+{:Addons::hook('public_meta')}
+<link href="__THEME__/image/favicon.ico?v={$site.sys_version}" type="image/x-icon" rel="shortcut icon">
+<!-- <link href="__THEME__/css/global.css?v={$site.sys_version}" rel="stylesheet" type="text/css" />
+<link href="__THEME__/css/module.css?v={$site.sys_version}" rel="stylesheet" type="text/css" />
+<link href="__THEME__/css/menu.css?v={$site.sys_version}" rel="stylesheet" type="text/css" />
+<link href="__THEME__/css/form.css?v={$site.sys_version}" rel="stylesheet" type="text/css" />
+<link href="__THEME__/css/jquery.atwho.css?v={$site.sys_version}" rel="stylesheet" type="text/css" /> -->
+<link href="__THEME__/css/css.php?t=css&f=global.css,module.css,menu.css,form.css,jquery.atwho.css&v={$site.sys_version}.css" rel="stylesheet" type="text/css" />
+<php>if(!empty($appCssList)):</php>
+<volist name='appCssList' id='cl'>
+<link href="{:APP_PUBLIC_URL}/{$cl}?v={$site.sys_version}" rel="stylesheet" type="text/css"/>
+</volist>
+<php>endif;</php>
+<script>
+/**
+ * 全局变量
+ */
+var SITE_URL  = '<php> echo SITE_URL;</php>';
+var UPLOAD_URL= '<php> echo UPLOAD_URL;</php>';
+var THEME_URL = '__THEME__';
+var APPNAME   = '<php> echo APP_NAME;</php>';
+var MID		  = '<php> echo $mid;</php>';
+var UID		  = '<php> echo $uid;</php>';
+var initNums  =  '<php> echo $initNums;</php>';
+var SYS_VERSION = '<php> echo $site["sys_version"];</php>'
+// Js语言变量
+var LANG = new Array();
+</script>
+<php>if(!empty($langJsList)) {</php>
+<volist name="langJsList" id="vo">
+<script src="{$vo}?v={$site.sys_version}"></script>
+</volist>
+<php>}</php>
+<!-- <script src="__THEME__/js/jquery-1.7.1.min.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/jquery.form.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/common.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/core.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/module.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/module.common.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/jwidget_1.0.0.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/jquery.atwho.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/jquery.caret.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/ui.core.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/ui.draggable.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/plugins/core.comment.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/plugins/core.digg.js?v={$site.sys_version}"></script> -->
+<script src="__THEME__/js/js.php?t=js&f=jquery-1.7.1.min.js,jquery.form.js,common.js,core.js,module.js,module.common.js,jwidget_1.0.0.js,jquery.atwho.js,jquery.caret.js,ui.core.js,ui.draggable.js,plugins/core.comment.js,plugins/core.digg.js&v={$site.sys_version}.js"></script>
+<script src="__THEME__/js/plugins/core.comment.js?v={$site.sys_version}"></script>
+<script src="__THEME__/js/plugins/core.digg.js?v={$site.sys_version}"></script>
+{:Addons::hook('public_head',array('uid'=>$uid))}
+</head>
+<body>
